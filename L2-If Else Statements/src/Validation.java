@@ -1,3 +1,5 @@
+import javax.swing.*;
+
 public class Validation {
 
     /*
@@ -8,5 +10,13 @@ public class Validation {
      */
 
 
+    public static void main(String[] args) {
+        int num = Integer.parseInt(JOptionPane.showInputDialog("put num greater then 10"));
 
+        if (num>10){
+            JOptionPane.showMessageDialog(null,"YOU DID IT");
+        }else{
+            JOptionPane.showMessageDialog(null, "Num is not greaTER THEN 10");
+        }
+    }
 }

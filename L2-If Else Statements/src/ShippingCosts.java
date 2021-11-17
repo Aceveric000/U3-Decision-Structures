@@ -1,3 +1,7 @@
+import jdk.nashorn.internal.scripts.JO;
+
+import javax.swing.*;
+
 public class ShippingCosts {
 
     /*
@@ -20,7 +24,39 @@ public class ShippingCosts {
     Price: $6.60
 
     As always, your program should include a method.
+
+
      */
+    public static void main(String[] args) {
+
+        double weight = 5.6;
+        Double.parseDouble(JOptionPane.showInputDialog("wight?"));
+        int milesShipped = 345;
+        Integer.parseInt(JOptionPane.showInputDialog("miles?"));
+        double shippingRate = 0;
+        double cost;
+
+        if (weight >= 10) {
+            shippingRate = 4.80;
+        } else {
+            if (weight >= 6) {
+                shippingRate = 3.70;
+            } else {
+                if (weight >= 3) {
+                    shippingRate = 1.10;
+                }
+            }
+        }
+        cost = cost(shippingRate, milesShipped);
+        JOptionPane.showMessageDialog(null, "cost is " + cost);
+
+    }
+        private static double cost ( double shippingRate, int milesShipped){
+            int costMult = milesShipped / 100 + 1;
+            if (costMult == 0)
+                costMult = 1;
+            return shippingRate * costMult;
+        }
+    }
 
 
-}
